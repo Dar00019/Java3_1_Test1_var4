@@ -1,22 +1,20 @@
-import java.util.ArrayList;
-
 abstract class List {
-    protected ArrayList<Integer> arr;
+    protected int[] arr;
 
     public List() {
     }
 
-    public List(ArrayList<Integer> arr) {
+    public List(int[] arr) {
         this.arr = arr;
     }
 
     public int size() {
-        return arr.size();
+        return arr.length;
     }
 
-    abstract Integer get(int index);
+    abstract int get();
 
-    abstract void add(Integer obj);
+    abstract List add(int obj);
 
-    abstract void remove();
+    abstract List remove();
 }

@@ -1,22 +1,25 @@
-import java.util.ArrayList;
-
 public class Queue extends List {
     public Queue() {
     }
 
-    public Queue(ArrayList<Integer> arr) {
+    public Queue(int[] arr) {
         super(arr);
     }
 
-    public Integer get(int index) {
-        return arr.get(0);
+    public int get() {
+        return arr[0];
     }
 
-    public void add(Integer obj) {
-        arr.add(obj);
+    public Queue add(int obj) {
+        int[] arr2 = new int[arr.length + 1];
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
+        arr2[arr2.length - 1] = obj;
+        return new Queue(arr2);
     }
 
-    public void remove() {
-        arr.remove(0);
+    public Queue remove() {
+        int[] arr2 = new int[arr.length - 1];
+        System.arraycopy(arr, 1, arr2, 0, arr.length-1);
+        return new Queue(arr2);
     }
 }

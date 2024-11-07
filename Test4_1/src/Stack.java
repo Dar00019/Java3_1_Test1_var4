@@ -1,22 +1,25 @@
-import java.util.ArrayList;
-
 public class Stack extends List {
     public Stack() {
     }
 
-    public Stack(ArrayList<Integer> arr) {
+    public Stack(int[] arr) {
         super(arr);
     }
 
-    public Integer get(int index) {
-        return arr.get(arr.size() - 1);
+    public int get() {
+        return arr[arr.length - 1];
     }
 
-    public void add(Integer obj) {
-        arr.add(obj);
+    public Stack add(int obj) {
+        int[] arr2 = new int[arr.length + 1];
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
+        arr2[arr2.length - 1] = obj;
+        return new Stack(arr2);
     }
 
-    public void remove() {
-        arr.remove(arr.size() - 1);
+    public Stack remove() {
+        int[] arr2 = new int[arr.length - 1];
+        System.arraycopy(arr, 0, arr2, 0, arr.length - 1);
+        return new Stack(arr2);
     }
 }
